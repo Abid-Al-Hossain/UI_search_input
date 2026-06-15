@@ -18,6 +18,9 @@ export function buildReactCode(state: SearchInputState) {
   return `import * as React from "react";
 
 const state = ${JSON.stringify(state, null, 2)};
+function resolveFont(s) { return s.fontBucket === "google" ? '"' + s.googleFontFamily + '", sans-serif' : "inherit"; }
+function buildShadow(s) { if (!s.shadowEnabled) return "none"; var hex = Math.round(s.shadowOpacity * 255).toString(16).padStart(2, "0"); return s.shadowX + "px " + s.shadowY + "px " + s.shadowBlur + "px " + s.shadowSpread + "px " + s.shadowColor + hex; }
+
 
 export default function SearchInputComponent() {
   const [query, setQuery] = React.useState(state.value);
@@ -38,14 +41,14 @@ export default function SearchInputComponent() {
         alignContent: "center",
         gap: state.gap,
         borderRadius: state.radius,
-        border: \`\${state.borderWidth}px solid \${invalid ? "#fb7185" : state.previewState === "focus" ? state.accent : state.border}\`,
+        border: \`\${state.borderWidth}px ${state.borderStyle} \${invalid ? state.errorColor : state.previewState === "focus" ? state.accent : state.border}\`,
         boxShadow: \`0 \${Math.round(state.shadow / 3)}px \${state.shadow}px rgba(0,0,0,.28)\`,
         background: state.background,
         color: state.foreground,
-        fontFamily: state.fontFamily,
+        fontFamily: resolveFont(state),
         opacity: state.disabled || state.previewState === "disabled" ? 0.55 : 1,
         outline: state.previewState === "focus" ? \`\${state.focusRing}px solid \${state.accent}\` : "none",
-        transition: state.transitionDuration > 0 ? "$1" : "none",
+        transition: state.transitionDuration > 0 ? "all " + state.transitionDuration + "ms " + state.transitionEasing : "none",
       }}
     >
       <label htmlFor={state.id} style={{ fontSize: state.labelSize, fontWeight: state.fontWeight }}>
@@ -53,7 +56,7 @@ export default function SearchInputComponent() {
       </label>
       <p style={{ margin: 0, color: state.muted }}>{state.description}</p>
       <form role="search" style={{ display: "grid", gap: 8 }} onSubmit={(event) => event.preventDefault()}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, borderRadius: 12, border: \`1px solid \${invalid ? "#fb7185" : state.border}\`, padding: "8px 12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, borderRadius: 12, border: \`1px solid \${invalid ? state.errorColor : state.border}\`, padding: "8px 12px" }}>
           {state.showSearchIcon && <span aria-hidden="true">⌕</span>}
           <input
             id={state.id}
@@ -106,7 +109,7 @@ export default function SearchInputComponent() {
           {summary}
         </p>
       </form>
-      <small style={{ color: invalid ? "#fb7185" : state.showSuccess ? "#22c55e" : state.muted }}>{message}</small>
+      <small style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
     </div>
   );
 }

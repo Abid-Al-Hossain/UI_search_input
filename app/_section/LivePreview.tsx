@@ -30,9 +30,9 @@ function shellStyle(state: SearchInputState): CSSProperties {
     padding: state.padding,
     gap: state.gap,
     borderRadius: buildRadius(state),
-    border: `${state.borderWidth}px solid ${invalid ? "#fb7185" : state.previewState === "focus" ? state.accent : state.border}`,
+    border: `${state.borderWidth}px solid ${invalid ? state.errorColor : state.previewState === "focus" ? state.accent : state.border}`,
     boxShadow: buildShadow(state),
-    background: state.background,
+    background: state.disabled && state.disabledUseCustomColors ? state.disabledBg : state.background,
     color: state.foreground,
     fontFamily: resolveFont(state),
     fontStyle: state.fontStyle,
@@ -65,7 +65,7 @@ export default function LivePreview({ state }: { state: SearchInputState }) {
       <label htmlFor={state.id} style={{ fontSize: state.labelSize, fontWeight: state.fontWeight }}>{state.label}{state.required ? " *" : ""}</label>
       <p className="text-sm" style={{ color: state.muted }}>{state.description}</p>
       <form className="grid gap-2" role="search" onSubmit={(event) => event.preventDefault()}>
-        <div className="flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: invalid ? "#fb7185" : state.border }}>
+        <div className="flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: invalid ? state.errorColor : state.border }}>
           {state.showSearchIcon && <span aria-hidden="true">⌕</span>}
           <input id={state.id} name={state.name} title={state.title} tabIndex={state.tabIndex} dir={state.dir} lang={state.lang} type="search" value={query} placeholder={state.placeholder} list={state.showSuggestions ? datalistId : undefined} required={state.required} disabled={state.disabled} readOnly={state.readOnly} autoComplete={state.autocomplete} inputMode={state.inputMode} enterKeyHint={state.enterKeyHint} aria-invalid={invalid || undefined} aria-describedby={summaryId} className="w-full bg-transparent outline-none" style={{ color: state.foreground }} onChange={(event) => setQuery(event.target.value)} />
           {state.showClearAction && <button type="button" aria-label="Clear search" disabled={state.disabled || state.readOnly} onClick={() => setQuery("")}>×</button>}
@@ -83,7 +83,7 @@ export default function LivePreview({ state }: { state: SearchInputState }) {
         )}
         <p id={summaryId} aria-live="polite" className="text-xs" style={{ color: state.muted }}>{summary}</p>
       </form>
-      <small style={{ color: invalid ? "#fb7185" : state.showSuccess ? "#22c55e" : state.muted }}>{message}</small>
+      <small style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
     </div>
   );
 }

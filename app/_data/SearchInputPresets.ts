@@ -74,6 +74,14 @@ export const DEFAULT_SEARCHINPUT_STATE: SearchInputState = {
   "showSuggestions": true,
   "required": false,
   "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+  "errorColor": "#ef4444",
+  "successColor": "#22c55e",
   "readOnly": false,
   "invalid": false
 };
@@ -134,6 +142,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -193,6 +207,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -252,6 +272,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -311,6 +337,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -370,6 +402,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -429,6 +467,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -488,6 +532,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -547,6 +597,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -606,6 +662,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -665,6 +727,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -724,6 +792,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -783,6 +857,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -842,6 +922,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -901,6 +987,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -960,6 +1052,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1019,6 +1117,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1078,6 +1182,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1137,6 +1247,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1196,6 +1312,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1255,6 +1377,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1314,6 +1442,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1373,6 +1507,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1432,6 +1572,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1491,6 +1637,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1550,6 +1702,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1609,6 +1767,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1668,6 +1832,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1727,6 +1897,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1786,6 +1962,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1845,6 +2027,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1904,6 +2092,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -1963,6 +2157,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2022,6 +2222,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2081,6 +2287,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2140,6 +2352,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2199,6 +2417,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2258,6 +2482,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2317,6 +2547,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2376,6 +2612,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2435,6 +2677,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2494,6 +2742,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2553,6 +2807,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2612,6 +2872,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2671,6 +2937,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2730,6 +3002,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2789,6 +3067,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2848,6 +3132,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }
@@ -2907,6 +3197,12 @@ export const SEARCHINPUT_PRESETS: StudioPreset[] = [
       "showSuggestions": true,
       "required": false,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
       "readOnly": false,
       "invalid": false
     }

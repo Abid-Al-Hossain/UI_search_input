@@ -1,4 +1,4 @@
-export type SectionId = "presets" | "basics" | "metadata" | "field" | "validation" | "behavior" | "layout" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "focus" | "states" | "accessibility";
+export type SectionId = "presets" | "basics" | "metadata" | "field" | "validation" | "behavior" | "layout" | "sizing" | "colors" | "border" | "radius" | "shadow" | "typography" | "focus" | "states" | "disabled" | "accessibility";
 
 export type SearchInputState = {
   showHelper: boolean;
@@ -51,6 +51,8 @@ export type SearchInputState = {
   muted: string;
   accent: string;
   border: string;
+  errorColor: string;
+  successColor: string;
   labelSize: number;
   inputSize: number;
   fontWeight: number;
@@ -79,6 +81,12 @@ export type SearchInputState = {
   showSuggestions: boolean;
   required: boolean;
   disabled: boolean;
+  disabledOpacity: number;
+  disabledCursor: "not-allowed" | "default" | "pointer";
+  disabledUseCustomColors: boolean;
+  disabledBg: string;
+  disabledText: string;
+  disabledBorder: string;
   readOnly: boolean;
   invalid: boolean;
 };
@@ -153,6 +161,10 @@ export const SECTIONS: Array<{ id: SectionId; label: string }> = [
   {
     "id": "states",
     "label": "State Preview"
+  },
+  {
+    "id": "disabled",
+    "label": "Disabled"
   },
   {
     "id": "accessibility",
