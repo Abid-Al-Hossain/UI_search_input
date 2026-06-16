@@ -83,7 +83,17 @@ export const DEFAULT_SEARCHINPUT_STATE: SearchInputState = {
   "errorColor": "#ef4444",
   "successColor": "#22c55e",
   "readOnly": false,
-  "invalid": false
+  "invalid": false,
+  "ariaLabel": "",
+  "searchIconColor": "#94a3b8",
+  "clearIconColor": "#94a3b8",
+  "suggestionsBg": "rgba(255,255,255,0.04)",
+  "suggestionsText": "#e2e8f0",
+  "suggestionActiveBg": "rgba(56,189,248,0.16)",
+  "suggestionActiveText": "#ffffff",
+  "highlightColor": "#38bdf8",
+  "loadingSpinnerEnabled": false,
+  "loadingSpinnerColor": "#38bdf8"
 };
 
 export const SEARCHINPUT_PRESETS: StudioPreset[] = [

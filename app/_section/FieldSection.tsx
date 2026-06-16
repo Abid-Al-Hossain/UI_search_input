@@ -21,6 +21,7 @@ export default function FieldSection({ state, update }: Props) {
       <Switch label="Search icon" checked={state.showSearchIcon} onChange={(value) => update("showSearchIcon", value)} />
       <Switch label="Clear action" checked={state.showClearAction} onChange={(value) => update("showClearAction", value)} />
       <Switch label="Suggestions" checked={state.showSuggestions} onChange={(value) => update("showSuggestions", value)} />
+      <Switch label="Loading spinner" checked={state.loadingSpinnerEnabled} onChange={(value) => update("loadingSpinnerEnabled", value)} />
     </SectionCard>
   );
 }

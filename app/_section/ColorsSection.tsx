@@ -15,6 +15,18 @@ export default function ColorsSection({ state, update }: Props) {
         <ColorControl label="Muted" value={state.muted} onChange={(v) => update("muted", v)} />
         <ColorControl label="Border" value={state.border} onChange={(v) => update("border", v)} />
       </SectionCard>
+      <SectionCard title="Icons" subtitle="Search and clear icon colors.">
+        <ColorControl label="Search icon" value={state.searchIconColor} onChange={(v) => update("searchIconColor", v)} />
+        <ColorControl label="Clear icon" value={state.clearIconColor} onChange={(v) => update("clearIconColor", v)} />
+        <ColorControl label="Loading spinner" value={state.loadingSpinnerColor} onChange={(v) => update("loadingSpinnerColor", v)} />
+      </SectionCard>
+      <SectionCard title="Suggestions" subtitle="Suggestion list panel and matched-text highlight.">
+        <ColorControl label="Panel background" value={state.suggestionsBg} onChange={(v) => update("suggestionsBg", v)} />
+        <ColorControl label="Text" value={state.suggestionsText} onChange={(v) => update("suggestionsText", v)} />
+        <ColorControl label="Active background" value={state.suggestionActiveBg} onChange={(v) => update("suggestionActiveBg", v)} />
+        <ColorControl label="Active text" value={state.suggestionActiveText} onChange={(v) => update("suggestionActiveText", v)} />
+        <ColorControl label="Match highlight" value={state.highlightColor} onChange={(v) => update("highlightColor", v)} />
+      </SectionCard>
       <SectionCard title="State Colors" subtitle="Status-driven accent colors.">
         <ColorControl label="Error" value={state.errorColor} onChange={(v) => update("errorColor", v)} />
         <ColorControl label="Success" value={state.successColor} onChange={(v) => update("successColor", v)} />

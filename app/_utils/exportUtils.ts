@@ -22,8 +22,23 @@ function resolveFont(s) { return s.fontBucket === "google" ? '"' + s.googleFontF
 function buildShadow(s) { if (!s.shadowEnabled) return "none"; var hex = Math.round(s.shadowOpacity * 255).toString(16).padStart(2, "0"); return s.shadowX + "px " + s.shadowY + "px " + s.shadowBlur + "px " + s.shadowSpread + "px " + s.shadowColor + hex; }
 
 
+function highlightMatch(text, query, highlightColor) {
+  if (!query.trim()) return text;
+  const index = text.toLowerCase().indexOf(query.toLowerCase());
+  if (index === -1) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <span style={{ color: highlightColor, fontWeight: 700 }}>{text.slice(index, index + query.length)}</span>
+      {text.slice(index + query.length)}
+    </>
+  );
+}
+
 export default function SearchInputComponent() {
   const [query, setQuery] = React.useState(state.value);
+  const [activeSuggestion, setActiveSuggestion] = React.useState(null);
+  const isLoading = state.loadingSpinnerEnabled && state.previewState === "loading";
   const invalid = state.invalid || state.previewState === "invalid";
   const message = invalid ? state.errorText : state.showSuccess ? state.successText : state.showHelper ? state.helper : "";
   const datalistId = \`\${state.id}-suggestions\`;
@@ -55,9 +70,10 @@ export default function SearchInputComponent() {
         {state.label}{state.required ? " *" : ""}
       </label>
       <p style={{ margin: 0, color: state.muted }}>{state.description}</p>
+      {isLoading && <style>{"@keyframes spin { to { transform: rotate(360deg); } }"}</style>}
       <form role="search" style={{ display: "grid", gap: 8 }} onSubmit={(event) => event.preventDefault()}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, borderRadius: 12, border: \`1px solid \${invalid ? state.errorColor : state.border}\`, padding: "8px 12px" }}>
-          {state.showSearchIcon && <span aria-hidden="true">⌕</span>}
+          {state.showSearchIcon && <span aria-hidden="true" style={{ color: state.searchIconColor }}>⌕</span>}
           <input
             id={state.id}
             name={state.name}
@@ -77,11 +93,15 @@ export default function SearchInputComponent() {
             enterKeyHint={state.enterKeyHint}
             aria-invalid={invalid || undefined}
             aria-describedby={summaryId}
+            aria-label={state.ariaLabel || undefined}
             style={{ flex: 1, minWidth: 0, border: 0, outline: 0, background: "transparent", color: state.foreground }}
             onChange={(event) => setQuery(event.target.value)}
           />
+          {isLoading && (
+            <span aria-hidden="true" style={{ display: "inline-block", width: 12, height: 12, borderRadius: "50%", border: \`2px solid \${state.loadingSpinnerColor}\`, borderTopColor: "transparent", animation: "spin 0.6s linear infinite" }} />
+          )}
           {state.showClearAction && (
-            <button type="button" aria-label="Clear search" disabled={state.disabled || state.readOnly} onClick={() => setQuery("")}>
+            <button type="button" aria-label="Clear search" disabled={state.disabled || state.readOnly} style={{ color: state.clearIconColor }} onClick={() => setQuery("")}>
               ×
             </button>
           )}
@@ -96,12 +116,26 @@ export default function SearchInputComponent() {
                 <option key={suggestion} value={suggestion} />
               ))}
             </datalist>
-            <div role="listbox" aria-label={\`\${state.label} suggestions\`} style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {suggestions.map((suggestion) => (
-                <button key={suggestion} type="button" role="option" aria-selected={suggestion === query} style={{ border: \`1px solid \${state.border}\`, borderRadius: 999, padding: "4px 8px", color: state.foreground, background: "transparent" }} onClick={() => setQuery(suggestion)}>
-                  {suggestion}
-                </button>
-              ))}
+            <div role="listbox" aria-label={\`\${state.label} suggestions\`} style={{ display: "flex", flexWrap: "wrap", gap: 8, borderRadius: 12, padding: 8, background: state.suggestionsBg }}>
+              {suggestions.map((suggestion) => {
+                const isActive = activeSuggestion === suggestion;
+                return (
+                  <button
+                    key={suggestion}
+                    type="button"
+                    role="option"
+                    aria-selected={suggestion === query}
+                    style={{ border: \`1px solid \${state.border}\`, borderRadius: 999, padding: "4px 8px", color: isActive ? state.suggestionActiveText : state.suggestionsText, background: isActive ? state.suggestionActiveBg : "transparent" }}
+                    onMouseEnter={() => setActiveSuggestion(suggestion)}
+                    onMouseLeave={() => setActiveSuggestion((current) => (current === suggestion ? null : current))}
+                    onFocus={() => setActiveSuggestion(suggestion)}
+                    onBlur={() => setActiveSuggestion((current) => (current === suggestion ? null : current))}
+                    onClick={() => setQuery(suggestion)}
+                  >
+                    {highlightMatch(suggestion, query, state.highlightColor)}
+                  </button>
+                );
+              })}
             </div>
           </>
         )}

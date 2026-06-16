@@ -89,6 +89,16 @@ export type SearchInputState = {
   disabledBorder: string;
   readOnly: boolean;
   invalid: boolean;
+  ariaLabel: string;
+  searchIconColor: string;
+  clearIconColor: string;
+  suggestionsBg: string;
+  suggestionsText: string;
+  suggestionActiveBg: string;
+  suggestionActiveText: string;
+  highlightColor: string;
+  loadingSpinnerEnabled: boolean;
+  loadingSpinnerColor: string;
 };
 
 export type StudioPreset = {

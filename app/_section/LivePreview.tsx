@@ -46,8 +46,23 @@ function shellStyle(state: SearchInputState): CSSProperties {
   };
 }
 
+function highlightMatch(text: string, query: string, highlightColor: string) {
+  if (!query.trim()) return text;
+  const index = text.toLowerCase().indexOf(query.toLowerCase());
+  if (index === -1) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <span style={{ color: highlightColor, fontWeight: 700 }}>{text.slice(index, index + query.length)}</span>
+      {text.slice(index + query.length)}
+    </>
+  );
+}
+
 export default function LivePreview({ state }: { state: SearchInputState }) {
   const [query, setQuery] = useState(state.value);
+  const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
+  const isLoading = state.loadingSpinnerEnabled && state.previewState === "loading";
 
   useEffect(() => {
     setQuery(state.value);
@@ -66,9 +81,10 @@ export default function LivePreview({ state }: { state: SearchInputState }) {
       <p className="text-sm" style={{ color: state.muted }}>{state.description}</p>
       <form className="grid gap-2" role="search" onSubmit={(event) => event.preventDefault()}>
         <div className="flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: invalid ? state.errorColor : state.border }}>
-          {state.showSearchIcon && <span aria-hidden="true">⌕</span>}
-          <input id={state.id} name={state.name} title={state.title} tabIndex={state.tabIndex} dir={state.dir} lang={state.lang} type="search" value={query} placeholder={state.placeholder} list={state.showSuggestions ? datalistId : undefined} required={state.required} disabled={state.disabled} readOnly={state.readOnly} autoComplete={state.autocomplete} inputMode={state.inputMode} enterKeyHint={state.enterKeyHint} aria-invalid={invalid || undefined} aria-describedby={summaryId} className="w-full bg-transparent outline-none" style={{ color: state.foreground }} onChange={(event) => setQuery(event.target.value)} />
-          {state.showClearAction && <button type="button" aria-label="Clear search" disabled={state.disabled || state.readOnly} onClick={() => setQuery("")}>×</button>}
+          {state.showSearchIcon && <span aria-hidden="true" style={{ color: state.searchIconColor }}>⌕</span>}
+          <input id={state.id} name={state.name} title={state.title} tabIndex={state.tabIndex} dir={state.dir} lang={state.lang} type="search" value={query} placeholder={state.placeholder} list={state.showSuggestions ? datalistId : undefined} required={state.required} disabled={state.disabled} readOnly={state.readOnly} autoComplete={state.autocomplete} inputMode={state.inputMode} enterKeyHint={state.enterKeyHint} aria-invalid={invalid || undefined} aria-describedby={summaryId} aria-label={state.ariaLabel || undefined} className="w-full bg-transparent outline-none" style={{ color: state.foreground }} onChange={(event) => setQuery(event.target.value)} />
+          {isLoading && <span aria-hidden="true" className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" style={{ color: state.loadingSpinnerColor }} />}
+          {state.showClearAction && <button type="button" aria-label="Clear search" disabled={state.disabled || state.readOnly} style={{ color: state.clearIconColor }} onClick={() => setQuery("")}>×</button>}
           <button type="submit" className="rounded-lg px-2 py-1 text-xs font-semibold" style={{ background: state.accent, color: "#ffffff" }}>Search</button>
         </div>
         {state.showSuggestions && (
@@ -76,8 +92,27 @@ export default function LivePreview({ state }: { state: SearchInputState }) {
             <datalist id={datalistId}>
               {suggestions.map((suggestion) => <option key={suggestion} value={suggestion} />)}
             </datalist>
-            <div role="listbox" aria-label={`${state.label} suggestions`} className="flex flex-wrap gap-2">
-              {suggestions.map((suggestion) => <button key={suggestion} type="button" role="option" aria-selected={suggestion === query} className="rounded-full border px-2 py-1 text-xs" style={{ borderColor: state.border, color: state.foreground }} onClick={() => setQuery(suggestion)}>{suggestion}</button>)}
+            <div role="listbox" aria-label={`${state.label} suggestions`} className="flex flex-wrap gap-2 rounded-xl p-2" style={{ background: state.suggestionsBg }}>
+              {suggestions.map((suggestion) => {
+                const isActive = activeSuggestion === suggestion;
+                return (
+                  <button
+                    key={suggestion}
+                    type="button"
+                    role="option"
+                    aria-selected={suggestion === query}
+                    className="rounded-full border px-2 py-1 text-xs"
+                    style={{ borderColor: state.border, background: isActive ? state.suggestionActiveBg : "transparent", color: isActive ? state.suggestionActiveText : state.suggestionsText }}
+                    onMouseEnter={() => setActiveSuggestion(suggestion)}
+                    onMouseLeave={() => setActiveSuggestion((current) => (current === suggestion ? null : current))}
+                    onFocus={() => setActiveSuggestion(suggestion)}
+                    onBlur={() => setActiveSuggestion((current) => (current === suggestion ? null : current))}
+                    onClick={() => setQuery(suggestion)}
+                  >
+                    {highlightMatch(suggestion, query, state.highlightColor)}
+                  </button>
+                );
+              })}
             </div>
           </>
         )}
