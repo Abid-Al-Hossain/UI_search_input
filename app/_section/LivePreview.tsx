@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import type { SearchInputState } from "../types";
 import { SYSTEM_FONTS } from "@/components/shared/typography/fontConstants";
 
@@ -63,10 +63,6 @@ export default function LivePreview({ state }: { state: SearchInputState }) {
   const [query, setQuery] = useState(state.value);
   const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
   const isLoading = state.loadingSpinnerEnabled && state.previewState === "loading";
-
-  useEffect(() => {
-    setQuery(state.value);
-  }, [state.value]);
 
   const invalid = state.invalid || state.previewState === "invalid";
   const message = invalid ? state.errorText : state.showSuccess ? state.successText : state.showHelper ? state.helper : "";

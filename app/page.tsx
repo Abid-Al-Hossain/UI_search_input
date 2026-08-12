@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { findActivePresetId } from "@/components/shared/presets/findActivePresetId";
 import ContrastGuard from "@/components/shared/color/ContrastGuard";
 import AppShell from "@/components/shared/layout/AppShell";
 import { PlaygroundLayout } from "@/components/shared/layout/PlaygroundLayout";
@@ -9,7 +10,7 @@ import UndoRedoButtons from "@/components/shared/layout/UndoRedoButtons";
 import SectionSelector from "@/components/shared/layout/SectionSelector";
 import { SharedPreviewDownloadPanel } from "@/components/shared/layout/SharedPreviewDownloadPanel";
 import type { PreviewCanvasMode } from "@/components/shared/layout/PreviewPanel";
-import { DEFAULT_SEARCHINPUT_STATE } from "./_data/SearchInputPresets";
+import { DEFAULT_SEARCHINPUT_STATE, SEARCHINPUT_PRESETS } from "./_data/SearchInputPresets";
 import { buildExportPayload } from "./_utils/exportUtils";
 import LivePreview from "./_section/LivePreview";
 import PresetsSection from "./_section/PresetsSection";
@@ -34,24 +35,25 @@ import { SECTIONS, type SectionId, type SearchInputState, type StudioPreset } fr
 export default function Page() {
   const { state, set: setState, undo, redo, reset, canUndo, canRedo } = useHistoryState<SearchInputState>(DEFAULT_SEARCHINPUT_STATE);
   const [activeSection, setActiveSection] = useState<SectionId>("presets");
-  const [activePresetId, setActivePresetId] = useState<string | null>(null);
-  const [downloadName] = useState("search-input-component");
+  const activePresetId = useMemo(() => findActivePresetId(state, DEFAULT_SEARCHINPUT_STATE, SEARCHINPUT_PRESETS), [state]);
+  const [downloadName, setDownloadName] = useState("search-input-component");
   const [previewBgMode, setPreviewBgMode] = useState<PreviewCanvasMode>("custom");
   const [previewBgInput, setPreviewBgInput] = useState("#0b1220");
   const [previewResetKey, setPreviewResetKey] = useState(0);
 
   const update = <K extends keyof SearchInputState>(key: K, value: SearchInputState[K]) => {
     setState((current) => ({ ...current, [key]: value }));
-    setActivePresetId(null);
   };
   const applyPreset = (preset: StudioPreset) => {
     setState({ ...DEFAULT_SEARCHINPUT_STATE, ...(preset.state as Partial<SearchInputState>) });
-    setActivePresetId(preset.id);
     setPreviewResetKey((value) => value + 1);
   };
 
   const exportPayload = useMemo(() => buildExportPayload(state, downloadName), [downloadName, state]);
-  const preview = useMemo(() => <LivePreview key={previewResetKey} state={state} />, [previewResetKey, state]);
+  const preview = useMemo(
+    () => <LivePreview key={`${previewResetKey}:${state.value}`} state={state} />,
+    [previewResetKey, state],
+  );
   const controls = (
     <>
       <SectionSelector sections={SECTIONS} active={activeSection} onChange={setActiveSection} />
@@ -73,7 +75,7 @@ export default function Page() {
       {activeSection === "disabled" && <DisabledSection state={state} update={update} />}{activeSection === "accessibility" && <AccessibilitySection state={state} update={update} />}
     </>
   );
-  const output = <SharedPreviewDownloadPanel preview={preview} code={exportPayload.content} downloadName={downloadName} previewBgMode={previewBgMode} previewBgInput={previewBgInput} onPreviewBgMode={setPreviewBgMode} onPreviewBgInput={setPreviewBgInput} />;
+  const output = <SharedPreviewDownloadPanel preview={preview} code={exportPayload.content} downloadName={downloadName} setDownloadName={setDownloadName} previewBgMode={previewBgMode} previewBgInput={previewBgInput} onPreviewBgMode={setPreviewBgMode} onPreviewBgInput={setPreviewBgInput} />;
 
   const handleReset = () => {
     reset();
